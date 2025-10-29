@@ -1,1 +1,1 @@
-web: gunicorn phonebook_crud.wsgi
+web: gunicorn core.wsgi
