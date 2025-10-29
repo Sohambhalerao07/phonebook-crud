@@ -114,7 +114,3 @@ Deploy.
 This project is open-source and free to use for learning and development.
 
 ```
-
-
-Just tell me: **"Make demo ready"** or **"Make architecture diagram"**.
-```
