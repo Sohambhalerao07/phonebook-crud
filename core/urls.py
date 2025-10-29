@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from contacts.views import ContactViewSet, contact_report
+from contacts.views import ContactViewSet, contact_report, contact_list, contact_create, contact_update, contact_delete
 
 router = DefaultRouter()
 router.register(r'contacts', ContactViewSet)
@@ -26,5 +26,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/report/', contact_report, name='contact_report'),
+    path('', contact_list, name='contact_list'),
+    path('add/', contact_create, name='contact_create'),
+    path('<int:pk>/edit/', contact_update, name='contact_update'),
+    path('<int:pk>/delete/', contact_delete, name='contact_delete'),
 ]
 

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Contacts List{% endblock %}
+
+{% block content %}
+<h1>Contacts</h1>
+<a href="{% url 'contact_create' %}" class="btn btn-primary mb-3">Add New Contact</a>
+
+{% if contacts %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact.full_name }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.phone }}</td>
+            <td>{{ contact.created_at|date:"M d, Y H:i" }}</td>
+            <td>
+                <a href="{% url 'contact_update' contact.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'contact_delete' contact.pk %}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No contacts found. <a href="{% url 'contact_create' %}">Add one now</a>.</p>
+{% endif %}
+{% endblock %}
