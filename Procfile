@@ -1,1 +1,1 @@
-web: gunicorn supabase_crud_app.wsgi
+web: gunicorn phonebook_crud.wsgi
