@@ -1,1 +1,1 @@
-web: gunicorn supabase-crud-app.wsgi
+web: gunicorn supabase_crud_app.wsgi
